@@ -130,23 +130,3 @@ ul li:hover{
     border-color:#4cc9ff;
     box-shadow:0 0 20px rgba(76,201,255,0.3);
 }
-const countdown = document.getElementById("countdown");
-
-// 仮の発売日（ここ変えてOK）
-const launchDate = new Date("2026-12-31 00:00:00").getTime();
-
-function updateCountdown(){
-    const now = new Date().getTime();
-    const diff = launchDate - now;
-
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-    countdown.innerHTML =
-    `${days}日 ${hours}時間 ${minutes}分 ${seconds}秒`;
-}
-
-setInterval(updateCountdown, 1000);
-updateCountdown();
