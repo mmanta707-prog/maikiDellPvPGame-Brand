@@ -1,38 +1,68 @@
-const btn = document.getElementById("buyBtn");
-
-/* 🔘 ボタン演出 */
-btn.addEventListener("click", () => {
-    btn.innerText = "開発中...";
-    btn.style.background = "#00ff88";
-    btn.style.boxShadow = "0 0 40px rgba(0,255,136,0.6)";
-
-    setTimeout(() => {
-        btn.innerText = "COMING SOON";
-        btn.style.background = "#4cc9ff";
-        btn.style.boxShadow = "0 0 25px rgba(76,201,255,0.4)";
-    }, 2000);
+// ボタン
+document.getElementById("buyBtn").addEventListener("click", () => {
+    alert("Coming Soon 🚀");
 });
 
-/* ✨ スクロールでふわっと出す */
-const elements = document.querySelectorAll("section, .mouse-container");
+// カウントダウン
+const countdown = document.getElementById("countdown");
+const launchDate = new Date("2026-12-31").getTime();
 
-function showOnScroll(){
-    elements.forEach(el => {
-        const rect = el.getBoundingClientRect();
+setInterval(() => {
+    const now = new Date().getTime();
+    const diff = launchDate - now;
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
 
-        if(rect.top < window.innerHeight - 100){
-            el.style.opacity = 1;
-            el.style.transform = "translateY(0)";
-            el.style.transition = "0.6s";
+    countdown.innerHTML = "発売まであと " + days + " 日";
+}, 1000);
+
+// スクロール演出
+const reveals = document.querySelectorAll(".reveal");
+
+window.addEventListener("scroll", () => {
+    reveals.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if(top < window.innerHeight - 100){
+            el.classList.add("active");
         }
+    });
+});
+
+// マウスパーティクル背景
+const canvas = document.getElementById("bg");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for(let i=0;i<80;i++){
+    particles.push({
+        x: Math.random()*canvas.width,
+        y: Math.random()*canvas.height,
+        r: Math.random()*2,
+        dx: (Math.random()-0.5)*1,
+        dy: (Math.random()-0.5)*1
     });
 }
 
-window.addEventListener("scroll", showOnScroll);
-showOnScroll();
+function animate(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
 
-/* 🌌 初期状態 */
-elements.forEach(el => {
-    el.style.opacity = 0;
-    el.style.transform = "translateY(30px)";
-});
+    particles.forEach(p=>{
+        p.x += p.dx;
+        p.y += p.dy;
+
+        if(p.x < 0 || p.x > canvas.width) p.dx *= -1;
+        if(p.y < 0 || p.y > canvas.height) p.dy *= -1;
+
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fillStyle = "#4cc9ff";
+        ctx.fill();
+    });
+
+    requestAnimationFrame(animate);
+}
+
+animate();
