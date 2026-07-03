@@ -145,3 +145,58 @@ footer a:hover{
     background:#4cc9ff;
     color:black;
 }
+/* ===== ハンバーガーメニュー ===== */
+
+.menu {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+/* 三本線 */
+.hamburger {
+    font-size: 28px;
+    cursor: pointer;
+    color: #4cc9ff;
+    padding: 10px;
+    user-select: none;
+    transition: 0.3s;
+}
+
+/* 開いたとき回転 */
+.hamburger.active {
+    transform: rotate(90deg);
+}
+
+/* ドロップダウン */
+.dropdown {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    top: 45px;
+    background: #111;
+    border: 1px solid #4cc9ff;
+    border-radius: 10px;
+    padding: 10px;
+    min-width: 160px;
+}
+
+/* 開いた状態 */
+.dropdown.show {
+    display: flex;
+}
+
+.dropdown a {
+    color: #4cc9ff;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+.dropdown a:hover {
+    background: #4cc9ff;
+    color: black;
+}
