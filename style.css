@@ -101,3 +101,47 @@ footer a:hover{
     color:black;
     box-shadow:0 0 15px #4cc9ff;
 }
+.menu{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:999;
+}
+
+.hamburger{
+    font-size:30px;
+    cursor:pointer;
+    color:#4cc9ff;
+    transition:0.3s;
+}
+
+/* 回転アニメ */
+.hamburger.active{
+    transform: rotate(90deg);
+}
+
+/* ドロップダウン */
+.dropdown{
+    display:none;
+    flex-direction:column;
+    background:#111;
+    border:1px solid #4cc9ff;
+    padding:10px;
+    border-radius:10px;
+    margin-top:10px;
+}
+
+.dropdown.show{
+    display:flex;
+}
+
+.dropdown a{
+    color:#4cc9ff;
+    text-decoration:none;
+    padding:8px;
+}
+
+.dropdown a:hover{
+    background:#4cc9ff;
+    color:black;
+}
