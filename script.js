@@ -36,3 +36,25 @@ elements.forEach(el => {
     el.style.opacity = 0;
     el.style.transform = "translateY(30px)";
 });
+.mouse{
+    position:relative;
+    overflow:hidden;
+}
+
+/* 光の反射 */
+.mouse::after{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:linear-gradient(120deg,transparent,rgba(255,255,255,0.2),transparent);
+    top:0;
+    left:-100%;
+    animation:shine 3s infinite;
+}
+
+@keyframes shine{
+    0%{left:-100%;}
+    50%{left:100%;}
+    100%{left:100%;}
+}
