@@ -36,4 +36,3 @@ elements.forEach(el => {
     el.style.opacity = 0;
     el.style.transform = "translateY(30px)";
 });
-
