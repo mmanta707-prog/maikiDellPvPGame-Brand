@@ -8,27 +8,31 @@
 </head>
 
 <body>
-<div class="menu">
-    <div class="hamburger" id="hamburger">☰</div>
 
-    <div class="dropdown" id="dropdown">
-        <a href="index.html">ホーム</a>
-        <a href="cart.html">🛒 カート</a>
-        <a href="https://www.youtube.com/@マイキデル" target="_blank">YouTube</a>
-    </div>
+<canvas id="bg"></canvas>
+
+<!-- メニュー -->
+<div class="menu">
+  <div class="hamburger" id="hamburger">☰</div>
+
+  <div class="dropdown" id="dropdown">
+    <a href="index.html">🏠 ホーム</a>
+    <a href="cart.html">🛒 カート</a>
+    <a href="orders.html">🧾 注文履歴</a>
+  </div>
 </div>
+
 <header class="hero">
-    <h1 class="glow">🛒 Cart</h1>
-    <p>カートはまだ空です</p>
+  <h1 class="glow">🛒 カート</h1>
 </header>
 
 <section class="card">
-    <h2>🖱 maikiDellPvP V1</h2>
-    <p>¥ Coming Soon</p>
-    <button onclick="alert('まだ購入できません')">購入する</button>
+  <div id="cartItems"></div>
+  <h2>合計: ¥<span id="total">0</span></h2>
+
+  <button onclick="checkout()">💳 購入（Stripe準備）</button>
 </section>
 
-<a href="index.html">← ホームに戻る</a>
-
+<script src="app.js"></script>
 </body>
 </html>
