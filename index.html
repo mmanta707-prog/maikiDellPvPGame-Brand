@@ -3,62 +3,46 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>maikiDellPvP V1</title>
+<title>maikiDell PvP STORE</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- 背景キャンバス -->
+<!-- 背景 -->
 <canvas id="bg"></canvas>
-<div class="menu">
-    <div class="hamburger" id="hamburger">☰</div>
 
-    <div class="dropdown" id="dropdown">
-        <a href="index.html">ホーム</a>
-        <a href="cart.html">🛒 カート</a>
-        <a href="https://www.youtube.com/@マイキデル" target="_blank">YouTube</a>
-    </div>
+<!-- メニュー -->
+<div class="menu">
+  <div class="hamburger" id="hamburger">☰</div>
+
+  <div class="dropdown" id="dropdown">
+    <a href="index.html">🏠 ホーム</a>
+    <a href="cart.html">🛒 カート (<span id="cartCount">0</span>)</a>
+    <a href="orders.html">🧾 注文履歴</a>
+    <a href="https://www.youtube.com/@マイキデル" target="_blank">▶ YouTube</a>
+  </div>
 </div>
+
+<!-- メイン -->
 <header class="hero">
-    <h1 class="glow">maikiDellPvP V1</h1>
-    <p class="sub">クリックの差が、勝敗の差になる。</p>
-    <button id="buyBtn">COMING SOON</button>
+  <h1 class="glow">maikiDell PvP STORE</h1>
+  <p>クリックの差が勝敗の差になる</p>
 </header>
 
-<section class="card reveal">
-    <h2>⚔ Product</h2>
-    <p>PvP特化ゲーミングマウス</p>
+<!-- 商品 -->
+<section class="card">
+  <h2>maikiDell PvP Mouse</h2>
+  <p>¥5980</p>
+  <button onclick="addToCart('PvP Mouse',5980)">🛒 カートに追加</button>
 </section>
 
-<section class="card reveal">
-    <h2>📊 Specs</h2>
-    <ul>
-        <li>PAW3395センサー</li>
-        <li>8000Hz</li>
-        <li>70g軽量</li>
-        <li>低遅延クリック</li>
-    </ul>
+<!-- ランチ -->
+<section class="card">
+  <h2>⏳ Launch</h2>
+  <div id="countdown"></div>
 </section>
 
-<section class="card reveal">
-    <h2>🎨 Colors</h2>
-    <p>Black / White / Clear</p>
-</section>
-
-<section class="card reveal">
-    <h2>⏳ Launch</h2>
-    <div id="countdown"></div>
-</section>
-
-<footer>
-    <a href="https://www.youtube.com/@マイキデル" target="_blank">YouTube</a>
-    <a href="#">Discord</a>
-    <a href="#">X</a>
-</footer>
-
-<script src="script.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
-<a href="cart.html">🛒 Cart</a>
-
