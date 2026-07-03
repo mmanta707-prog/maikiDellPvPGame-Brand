@@ -80,4 +80,3 @@ hamburger.addEventListener("click", () => {
     dropdown.classList.toggle("show");
     hamburger.classList.toggle("active");
 });
-
