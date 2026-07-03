@@ -58,3 +58,17 @@ elements.forEach(el => {
     50%{left:100%;}
     100%{left:100%;}
 }
+const items = document.querySelectorAll("section, .mouse-container");
+
+function show(){
+  items.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      el.style.opacity = 1;
+      el.style.transform = "translateY(0)";
+    }
+  });
+}
+
+window.addEventListener("scroll", show);
+show();
