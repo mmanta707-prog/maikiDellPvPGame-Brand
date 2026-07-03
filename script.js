@@ -58,4 +58,3 @@ elements.forEach(el => {
     50%{left:100%;}
     100%{left:100%;}
 }
-
