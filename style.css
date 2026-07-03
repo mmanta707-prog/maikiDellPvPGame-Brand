@@ -1,159 +1,51 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0a0a0a;
+    color: white;
+    text-align: center;
 }
 
-body{
-    background:#05070a;
-    color:white;
-    text-align:center;
-    overflow-x:hidden;
+.hero {
+    padding: 100px 20px;
 }
 
-/* 🌌 ネオン背景 */
-body::before{
-    content:"";
-    position:fixed;
-    width:700px;
-    height:700px;
-    background:radial-gradient(circle,#4cc9ff,transparent 60%);
-    top:-150px;
-    left:50%;
-    transform:translateX(-50%);
-    filter:blur(120px);
-    opacity:0.25;
-    animation:move 6s infinite alternate;
-    z-index:-1;
+.glow {
+    font-size: 48px;
+    color: #4cc9ff;
+    text-shadow: 0 0 20px #4cc9ff;
 }
 
-@keyframes move{
-    from{transform:translateX(-50%) translateY(0);}
-    to{transform:translateX(-50%) translateY(40px);}
+button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    background: #4cc9ff;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
 }
 
-/* 💎 ヒーロー */
-.hero{
-    padding:120px 20px 60px;
+section {
+    margin: 60px auto;
+    max-width: 600px;
+    background: #111;
+    padding: 20px;
+    border-radius: 12px;
 }
 
-.hero p{
-    color:#4cc9ff;
-    margin-top:10px;
+ul {
+    list-style: none;
+    padding: 0;
 }
 
-/* ⚔️ 光るタイトル */
-.glow{
-    font-size:64px;
-    text-shadow:
-        0 0 10px #4cc9ff,
-        0 0 30px #4cc9ff,
-        0 0 60px #4cc9ff;
+li {
+    padding: 5px;
 }
 
-/* 🔘 ボタン */
-button{
-    margin-top:30px;
-    background:#4cc9ff;
-    border:none;
-    padding:15px 35px;
-    border-radius:12px;
-    font-size:18px;
-    cursor:pointer;
-    box-shadow:0 0 25px rgba(76,201,255,0.4);
-    transition:0.3s;
-}
-
-button:hover{
-    transform:scale(1.08);
-    box-shadow:0 0 50px rgba(76,201,255,0.8);
-}
-
-/* 🖱️ マウス */
-.mouse-container{
-    display:flex;
-    justify-content:center;
-    margin:40px 0;
-}
-
-.mouse{
-    width:220px;
-    height:320px;
-    background:linear-gradient(180deg,#444,#222);
-    border-radius:120px;
-    box-shadow:0 0 40px rgba(76,201,255,0.3);
-    animation:float 3s ease-in-out infinite;
-    position:relative;
-}
-
-@keyframes float{
-    0%{transform:translateY(0);}
-    50%{transform:translateY(-15px);}
-    100%{transform:translateY(0);}
-}
-
-.wheel{
-    width:18px;
-    height:40px;
-    background:#111;
-    border-radius:10px;
-    position:absolute;
-    top:50px;
-    left:50%;
-    transform:translateX(-50%);
-}
-
-/* 📊 セクション */
-section{
-    padding:50px 20px;
-}
-
-/* 🧱 スペックカード */
-ul{
-    list-style:none;
-    padding:0;
-}
-
-ul li{
-    background:#0f141a;
-    border:1px solid #1e2a36;
-    padding:15px;
-    margin:10px auto;
-    width:260px;
-    border-radius:12px;
-    transition:0.3s;
-}
-
-ul li:hover{
-    transform:scale(1.05);
-    border-color:#4cc9ff;
-    box-shadow:0 0 20px rgba(76,201,255,0.3);
-}
-.mouse{
-    position:relative;
-    overflow:hidden;
-}
-
-/* 光の反射 */
-.mouse::after{
-    content:"";
-    position:absolute;
-    width:100%;
-    height:100%;
-    background:linear-gradient(120deg,transparent,rgba(255,255,255,0.2),transparent);
-    top:0;
-    left:-100%;
-    animation:shine 3s infinite;
-}
-
-@keyframes shine{
-    0%{left:-100%;}
-    50%{left:100%;}
-    100%{left:100%;}
-}
-section, .mouse-container {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: 0.6s;
+.links a {
+    margin: 10px;
+    color: #4cc9ff;
+    text-decoration: none;
 }
