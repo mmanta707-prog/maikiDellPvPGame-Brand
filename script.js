@@ -1,74 +1,20 @@
-const btn = document.getElementById("buyBtn");
-
-/* 🔘 ボタン演出 */
-btn.addEventListener("click", () => {
-    btn.innerText = "開発中...";
-    btn.style.background = "#00ff88";
-    btn.style.boxShadow = "0 0 40px rgba(0,255,136,0.6)";
-
-    setTimeout(() => {
-        btn.innerText = "COMING SOON";
-        btn.style.background = "#4cc9ff";
-        btn.style.boxShadow = "0 0 25px rgba(76,201,255,0.4)";
-    }, 2000);
+// ボタン反応
+document.getElementById("buyBtn").addEventListener("click", function() {
+    alert("Coming Soon!");
 });
 
-/* ✨ スクロールでふわっと出す */
-const elements = document.querySelectorAll("section, .mouse-container");
+// カウントダウン（ダミー）
+const countdown = document.getElementById("countdown");
 
-function showOnScroll(){
-    elements.forEach(el => {
-        const rect = el.getBoundingClientRect();
+function updateCountdown() {
+    const launchDate = new Date("2026-12-31").getTime();
+    const now = new Date().getTime();
+    const diff = launchDate - now;
 
-        if(rect.top < window.innerHeight - 100){
-            el.style.opacity = 1;
-            el.style.transform = "translateY(0)";
-            el.style.transition = "0.6s";
-        }
-    });
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+    countdown.innerHTML = "あと " + days + " 日";
 }
 
-window.addEventListener("scroll", showOnScroll);
-showOnScroll();
-
-/* 🌌 初期状態 */
-elements.forEach(el => {
-    el.style.opacity = 0;
-    el.style.transform = "translateY(30px)";
-});
-.mouse{
-    position:relative;
-    overflow:hidden;
-}
-
-/* 光の反射 */
-.mouse::after{
-    content:"";
-    position:absolute;
-    width:100%;
-    height:100%;
-    background:linear-gradient(120deg,transparent,rgba(255,255,255,0.2),transparent);
-    top:0;
-    left:-100%;
-    animation:shine 3s infinite;
-}
-
-@keyframes shine{
-    0%{left:-100%;}
-    50%{left:100%;}
-    100%{left:100%;}
-}
-const items = document.querySelectorAll("section, .mouse-container");
-
-function show(){
-  items.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if(top < window.innerHeight - 100){
-      el.style.opacity = 1;
-      el.style.transform = "translateY(0)";
-    }
-  });
-}
-
-window.addEventListener("scroll", show);
-show();
+setInterval(updateCountdown, 1000);
+updateCountdown();
